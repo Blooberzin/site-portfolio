@@ -1,0 +1,13 @@
+---
+import { perfil } from "../dados/perfil";
+const { titulo = "Precisa de alguém que entenda de busca e de texto?" } = Astro.props;
+---
+<div class="env">
+  <div class="chamada">
+    <h2>{titulo}</h2>
+    <div class="acoes">
+      <a class="botao" href={`mailto:${perfil.email}`}>me mandar um e-mail</a>
+      <a class="botao vazado" href={perfil.linkedin} rel="noopener">linkedin</a>
+    </div>
+  </div>
+</div>

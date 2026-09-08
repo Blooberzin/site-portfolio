@@ -1,0 +1,92 @@
+---
+import Base from "../layouts/Base.astro";
+import Chamada from "../components/Chamada.astro";
+import { perfil, resultados, areas, casos } from "../dados/perfil";
+import { getCollection } from "astro:content";
+
+const artigos = (await getCollection("artigos", ({ data }) => !data.rascunho))
+  .sort((a, b) => b.data.data - a.data.data)
+  .slice(0, 3);
+const fmt = (d) => d.toLocaleDateString("pt-BR", { day: "2-digit", month: "short", year: "numeric" });
+---
+<Base titulo={`${perfil.nome} · ${perfil.cargo}`}>
+  <section class="env abertura">
+    <p class="rotulo">{perfil.cargo} · {perfil.local}</p>
+    <h1 class="linha-um">Faço conteúdo ser encontrado.</h1>
+    <p class="resumo">
+      Trabalho com SEO, conteúdo e vídeo. Uso IA nas etapas em que ela encurta
+      caminho de verdade, e fico longe dela nas etapas em que errar sai caro.
+    </p>
+  </section>
+
+  <section class="env secao">
+    <div class="numeros">
+      {resultados.map((r) => (
+        <div class="numero">
+          <span class="valor">
+            {r.exemplo ? <span class="vazio" aria-label="a preencher"></span> : r.valor}
+            {r.exemplo && <span class="exemplo">preencher</span>}
+          </span>
+          <span class="desc">{r.desc}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="env secao forte">
+    <div class="trilho">
+      <div class="cabeca">
+        <span class="rotulo">01 · o que eu faço</span>
+        <p>Quatro frentes. As duas primeiras são o centro, as outras duas sustentam.</p>
+      </div>
+      <div class="itens">
+        {areas.map((a) => (
+          <article class="item">
+            <h3>{a.titulo}</h3>
+            <p>{a.texto}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="env secao">
+    <div class="trilho">
+      <div class="cabeca">
+        <span class="rotulo">02 · casos</span>
+        <p>O que existia antes, o que eu fiz, o que mudou depois.</p>
+      </div>
+      <div class="itens">
+        {casos.map((c) => (
+          <article class="item">
+            <h3>{c.titulo}{c.exemplo && <span class="exemplo">completar</span>}</h3>
+            <p class="rotulo" style="margin:4px 0 8px">{c.papel}</p>
+            <p>{c.texto}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="env secao">
+    <div class="trilho">
+      <div class="cabeca">
+        <span class="rotulo">03 · escrevo sobre</span>
+        <p>Método, teste e o que não funcionou. <a href="/artigos/">Ver todos</a>.</p>
+      </div>
+      <div class="lista-artigos">
+        {artigos.map((a) => (
+          <article class="artigo-linha">
+            <time datetime={a.data.data.toISOString()}>{fmt(a.data.data)}</time>
+            <a href={`/artigos/${a.id}/`}>
+              <h3>{a.data.titulo}</h3>
+              <p>{a.data.resumo}</p>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Chamada />
+</Base>

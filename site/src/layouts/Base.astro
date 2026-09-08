@@ -1,0 +1,63 @@
+---
+import "../styles/global.css";
+import { perfil } from "../dados/perfil";
+
+const { titulo, descricao, tipo = "website" } = Astro.props;
+const canonica = new URL(Astro.url.pathname, Astro.site);
+const desc = descricao ?? perfil.descricaoSite;
+const rotas = [
+  { href: "/", texto: "início" },
+  { href: "/sobre/", texto: "sobre" },
+  { href: "/artigos/", texto: "artigos" },
+  { href: "/servicos/", texto: "serviços" },
+];
+const aqui = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titulo}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonica} />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:type" content={tipo} />
+    <meta property="og:url" content={canonica} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title={perfil.nome} href="/rss.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" />
+    <slot name="cabeca" />
+  </head>
+  <body>
+    <header class="cabecalho">
+      <div class="env">
+        <a class="marca" href="/">{perfil.nome.toLowerCase().replace(" ", "")}</a>
+        <nav>
+          {rotas.map((r) => (
+            <a href={r.href} aria-current={aqui === r.href ? "page" : undefined}>{r.texto}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="rodape">
+      <div class="env">
+        <span>{perfil.nome} · {perfil.local}</span>
+        <a class="direita" href={`mailto:${perfil.email}`}>e-mail</a>
+        <a href={perfil.linkedin} rel="me noopener">linkedin</a>
+        <a href={perfil.instagram} rel="me noopener">instagram</a>
+        <a href="/rss.xml">rss</a>
+      </div>
+    </footer>
+  </body>
+</html>

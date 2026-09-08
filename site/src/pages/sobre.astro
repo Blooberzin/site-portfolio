@@ -1,0 +1,73 @@
+---
+import Base from "../layouts/Base.astro";
+import Chamada from "../components/Chamada.astro";
+import { perfil } from "../dados/perfil";
+---
+<Base titulo={`Sobre · ${perfil.nome}`} descricao="Trajetória, formação e como eu trabalho.">
+  <section class="env abertura">
+    <p class="rotulo">02 · sobre</p>
+    <h1 class="linha-um">Como eu trabalho.</h1>
+  </section>
+
+  <section class="env secao forte">
+    <div class="trilho">
+      <div class="cabeca"><span class="rotulo">trajetória</span></div>
+      <div class="prosa">
+        <p>
+          Sou analista de marketing na UniSoma, em Campinas. Cuido do SEO do site
+          e do blog, produzo e edito vídeo para o canal da empresa, e conduzi o
+          redesenho do site institucional, que eu mesmo administro.
+        </p>
+        <p>
+          Sou formado em Propaganda e Marketing e pós-graduado em Marketing. A
+          parte técnica eu aprendi trabalhando, e continuo aprendendo assim.
+        </p>
+        <p>
+          <strong>Substitua estes parágrafos pela sua versão.</strong> O que está
+          aqui é verdadeiro, mas está na minha voz e não na sua. Conte de onde
+          veio, o que te fez ir para busca e conteúdo, e o que você quer fazer a
+          seguir.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="env secao">
+    <div class="trilho">
+      <div class="cabeca"><span class="rotulo">como eu trabalho</span></div>
+      <div class="prosa">
+        <p>
+          Começo pelo dado que já existe. Antes de propor pauta, eu olho o que as
+          pessoas já procuram e onde o site já aparece sem ser clicado. Quase
+          sempre a oportunidade está ali, e não numa ideia nova.
+        </p>
+        <p>
+          Uso IA como acelerador de etapa, não como substituto de decisão. Ela
+          entra no rascunho, na transcrição e na auditoria de texto. Não entra na
+          conferência de dado nem na definição de posicionamento, porque nessas
+          duas ela erra com confiança.
+        </p>
+        <p>
+          Quando falta ferramenta, eu construo. Não venho da engenharia, então só
+          construo o que resolve um problema concreto que eu tenho, e prefiro a
+          solução que eu consigo manter sozinho.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="env secao">
+    <div class="trilho">
+      <div class="cabeca"><span class="rotulo">ferramentas</span></div>
+      <div class="prosa">
+        <p>
+          Search Console, Semrush, WordPress, Google Analytics. Para construir:
+          React, Next.js, Astro e Supabase. Para vídeo: edição por transcrição.
+          Para texto: um fluxo próprio de auditoria antes de publicar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Chamada titulo="Quer conversar sobre uma vaga ou um projeto?" />
+</Base>

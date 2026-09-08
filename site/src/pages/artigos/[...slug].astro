@@ -1,0 +1,47 @@
+---
+import Base from "../../layouts/Base.astro";
+import Chamada from "../../components/Chamada.astro";
+import { perfil } from "../../dados/perfil";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const artigos = await getCollection("artigos", ({ data }) => !data.rascunho);
+  return artigos.map((a) => ({ params: { slug: a.id }, props: { a } }));
+}
+
+const { a } = Astro.props;
+const { Content } = await render(a);
+const fmt = (d) => d.toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" });
+
+const dadosEstruturados = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: a.data.titulo,
+  description: a.data.resumo,
+  datePublished: a.data.data.toISOString(),
+  author: { "@type": "Person", name: perfil.nome, url: Astro.site?.href },
+  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
+};
+---
+<Base titulo={`${a.data.titulo} · ${perfil.nome}`} descricao={a.data.resumo} tipo="article">
+  <script type="application/ld+json" slot="cabeca" set:html={JSON.stringify(dadosEstruturados)} />
+
+  <article class="env abertura">
+    <p class="rotulo">
+      <a href="/artigos/" style="color:inherit">artigos</a> · {fmt(a.data.data)}
+    </p>
+    <h1 style="max-width:24ch">{a.data.titulo}</h1>
+    <p class="resumo">{a.data.resumo}</p>
+    {a.data.tags.length > 0 && (
+      <div class="tags" style="margin-top:18px">{a.data.tags.map((t) => <span class="tag">{t}</span>)}</div>
+    )}
+  </article>
+
+  <div class="env secao forte">
+    <div class="prosa rolagem">
+      <Content />
+    </div>
+  </div>
+
+  <Chamada titulo="Quer isso aplicado no seu site?" />
+</Base>
