@@ -328,7 +328,7 @@ strong { font-weight: 700; }
 }
 
 .section-title {
-  max-width: 16ch;
+  /* max-width: 16ch; */
 }
 
 .section-index {
