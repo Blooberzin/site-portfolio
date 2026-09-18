@@ -1,53 +1,63 @@
 ---
-titulo: "Impressão alta e clique baixo: onde a pauta já está esperando"
-resumo: "O filtro do Search Console que transforma dado que você já tem em pauta de blog, sem depender de ferramenta paga nem de brainstorm."
+titulo: "Impressão alta e clique baixo: onde a pauta pode estar escondida"
+resumo: "Um filtro simples do Search Console para encontrar buscas que já trazem visibilidade, mas ainda não transformam essa visibilidade em clique."
 data: 2026-09-16
 tags: ["seo", "search console", "conteúdo"]
 ---
 
-A maior parte das reuniões de pauta começa pelo lugar errado: alguém pergunta
-sobre o que a gente devia escrever. A resposta já existe, e está num relatório
-que você provavelmente já tem aberto.
+Uma pauta não precisa começar numa ferramenta de palavras-chave. Às vezes ela já está no relatório que você abre toda semana.
+
+O ponto é encontrar consultas em que o site aparece, mas ainda não entrega uma boa resposta para quem pesquisa.
 
 ## O filtro
 
-No Search Console, vá em Desempenho, aba Consultas, e monte esta combinação:
+No Search Console, vá em **Desempenho → Resultados da pesquisa → Consultas**.
 
-- **impressão alta**: o Google já está te mostrando para essa busca
-- **clique baixo**: quem viu não escolheu você
-- **posição entre 8 e 20**: você está perto, mas não perto o bastante
+Eu começaria procurando três sinais ao mesmo tempo:
 
-Cada linha que sobra é uma busca em que o Google já decidiu que você tem alguma
-relevância, e o usuário decidiu que não. Essa distância entre as duas decisões
-é onde mora a pauta.
+- **impressões relevantes**: existe demanda suficiente para a consulta aparecer com frequência;
+- **CTR abaixo do esperado**: a página está sendo exibida, mas pouca gente escolhe clicar;
+- **posição aproximada entre 8 e 20**: o resultado já está no jogo, mas ainda tem espaço para ganhar visibilidade.
 
-## Por que essa faixa e não outra
+Esses números são um ponto de partida, não uma lei. A faixa muda conforme o site, o tipo de consulta, a intenção e a página que está ranqueando.
 
-Acima da posição 5, o problema raramente é conteúdo. É concorrência ou
-autoridade, e artigo novo não resolve.
+## O que esse filtro realmente diz
 
-Abaixo da posição 20, o Google ainda não te considera candidato. Você não está
-perdendo clique, está fora da disputa.
+Ele não prova que “o conteúdo está ruim”.
 
-Entre 8 e 20 é onde um conteúdo melhor muda o resultado dentro de semanas, e
-não de trimestres.
+Pode existir problema de título e snippet. Pode haver uma intenção diferente da que a página atende. Pode ser uma busca muito competitiva. Pode ser simplesmente uma SERP em que o usuário resolve a dúvida sem clicar.
 
-## O que fazer com a lista
+A utilidade do filtro é outra: ele cria uma lista de hipóteses que vale investigar.
 
-Aqui entra a única etapa em que eu uso IA nesse fluxo: agrupar por intenção.
+## O que eu faço com a lista
 
-Colo a lista de consultas e peço para separar em grupos de mesma intenção de
-busca, sem sugerir título, sem escrever nada. Só agrupar e nomear a intenção de
-cada grupo.
+A única etapa em que eu colocaria IA nesse fluxo é o agrupamento.
 
-Grupo com muitas variações da mesma pergunta costuma render um artigo só, mais
-completo. Grupo com uma consulta só e volume razoável costuma render uma seção
-dentro de um artigo que já existe, e não um texto novo.
+Colo as consultas e peço para o modelo:
+
+1. agrupar variações que parecem ter a mesma intenção;
+2. nomear a intenção de cada grupo;
+3. não sugerir títulos;
+4. não escrever conteúdo.
+
+O objetivo é reduzir ruído antes de decidir o que merece uma página nova e o que deveria melhorar uma página que já existe.
 
 ## O erro que eu já cometi
 
-Tratar cada consulta como um artigo. Isso gera dez textos rasos que competem
-entre si pela mesma busca, e o Google acaba escolhendo o pior deles.
+Tratar cada consulta como um artigo.
 
-Agrupar antes de escrever resolve isso, e é a diferença entre um blog que cresce
-e um blog que só engorda.
+Isso pode gerar várias páginas rasas disputando a mesma intenção. Em vez de aumentar a cobertura, você aumenta a quantidade de conteúdo que precisa manter.
+
+Hoje eu prefiro uma pergunta mais simples:
+
+> **Essa busca merece uma página nova ou merece uma resposta melhor onde ela já existe?**
+
+É uma diferença pequena no processo e enorme na quantidade de conteúdo desnecessário que você produz.
+
+## O limite
+
+Search Console mostra o comportamento do Google e dos usuários no seu site. Ele não explica sozinho por que uma página perdeu um clique.
+
+Por isso eu uso o filtro como ponto de partida para investigação, não como diagnóstico automático.
+
+A parte importante continua sendo interpretar a intenção e olhar a página que está recebendo a impressão.
