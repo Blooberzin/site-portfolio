@@ -227,7 +227,7 @@ strong { font-weight: 700; }
 }
 
 .abertura .resumo {
-  max-width: 64ch;
+  /* max-width: 64ch; */
   margin-top: 22px;
   color: var(--muted);
   font-size: 19px;
@@ -246,7 +246,7 @@ strong { font-weight: 700; }
 .hero-copy { max-width: 760px; }
 
 .hero .linha-um {
-  max-width: 9ch;
+  /* max-width: 9ch; */
   margin-top: 18px;
 }
 
