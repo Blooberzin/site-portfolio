@@ -1,78 +1,41 @@
-# Site do Renan Barbosa
+# Renan Content OS
 
-Portfólio pessoal em Astro, com geração estática, conteúdo em Markdown, sitemap, RSS, Open Graph e dados estruturados para artigos.
+Painel editorial para transformar sinais sobre SEO, GEO, AEO, Marketing de Conteúdo e IA aplicada ao Marketing em conteúdo multicanal, com aprovação humana antes da distribuição.
 
-## Desenvolvimento
+## O que já está implementado
 
-Rodar localmente:
+- Radar de pautas com score editorial.
+- Geração estruturada com Vercel AI SDK + AI Gateway.
+- Pipeline: ideia → pesquisa → draft → aprovado → agendado → publicado.
+- Pacote multicanal: artigo, LinkedIn, carrossel/legenda do Instagram e metadados SEO/GEO.
+- Persistência local no navegador para o MVP.
+- Publicação de artigo no `site-portfolio` por branch + Pull Request.
+- Agendamento de LinkedIn e Instagram via backend proxy da API do Metricool.
+- Geração dinâmica de slides 1080×1350 para o carrossel do Instagram.
+- Health check das integrações.
 
-~~~bash
-cd site
-npm install
-npm run dev
-~~~
+## Deploy na Vercel
 
-Build de produção:
+Crie um novo projeto apontando para este mesmo repositório e defina **Root Directory** como `content-agent`.
 
-~~~bash
-cd site
-npm run build
-npm run preview
-~~~
+O AI Gateway pode usar OIDC automaticamente quando habilitado no projeto Vercel. Para GitHub e Metricool, configure as variáveis descritas em `.env.example` no ambiente de produção.
 
-## Arquitetura
+## Segurança
 
-~~~
-site/
-  public/                 arquivos públicos, favicon e assets
-  src/
-    components/           blocos reutilizáveis
-    content/artigos/      artigos em Markdown
-    dados/perfil.ts       conteúdo profissional centralizado
-    layouts/Base.astro    estrutura, metadata e navegação
-    pages/                rotas do site
-    styles/global.css     sistema visual
-  astro.config.mjs
-  package.json
-  package-lock.json
-vercel.json               configuração de build e headers
-.github/workflows/site.yml
-~~~
+Nunca coloque tokens no cliente. As rotas `/api/publish/github` e `/api/publish/metricool` executam no servidor e leem credenciais apenas de variáveis de ambiente.
 
-## Conteúdo
+O conteúdo só é distribuído depois de passar para o status `approved` no painel.
 
-As informações profissionais recorrentes ficam em:
+## Fluxo recomendado
 
-site/src/dados/perfil.ts
+1. O radar diário traz sinais recentes e links.
+2. Cole os sinais no Radar do Content OS.
+3. Gere/score as pautas.
+4. Abra uma pauta e gere o pacote multicanal.
+5. Revise especialmente `validationNotes`.
+6. Aprove o conteúdo.
+7. Envie o artigo para o portfólio (PR) e agende LinkedIn/Instagram.
 
-Os artigos ficam em:
+## Observação sobre fontes
 
-site/src/content/artigos/
-
-Front matter de artigo:
-
-~~~yaml
----
-titulo: "Título"
-resumo: "Descrição curta"
-data: 2026-09-20
-tags: ["seo", "ia"]
-rascunho: false
----
-~~~
-
-Use rascunho: true para manter um artigo fora do site e do RSS.
-
-## Vercel
-
-O projeto usa site/ como Root Directory na Vercel. O vercel.json mantém o framework como Astro, define npm ci + npm run build e adiciona headers de segurança.
-
-Antes de usar um domínio próprio, atualize a propriedade site em astro.config.mjs e o sitemap em public/robots.txt.
-
-## Princípios
-
-- conteúdo profissional sem métricas inventadas;
-- IA como ferramenta de aceleração e auditoria, não como substituta de julgamento;
-- performance por simplicidade;
-- poucas dependências;
-- SEO técnico como parte do produto, não como acabamento.
+O gerador foi instruído a não inventar estatísticas, pesquisas, datas ou fatos recentes. Quando a entrada não traz evidência suficiente, ele deve registrar o ponto em `validationNotes` para checagem antes da publicação.
