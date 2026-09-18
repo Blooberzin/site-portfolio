@@ -22,29 +22,37 @@ function safeEqual(a: string, b: string) {
   return result === 0;
 }
 
+function secret() {
+  const value = process.env.CONTENT_OS_SESSION_SECRET;
+  if (!value) throw new Error("CONTENT_OS_SESSION_SECRET não configurado.");
+  return value;
+}
+
 export const SESSION_COOKIE = "content_os_session";
 
-export async function createSessionToken() {
-  const secret = process.env.CONTENT_OS_SESSION_SECRET;
-  if (!secret) throw new Error("CONTENT_OS_SESSION_SECRET não configurado.");
-  return hmac(secret, "renan-content-os:v1");
+export async function createSessionToken(ttlSeconds = 60 * 60 * 12) {
+  const exp = Math.floor(Date.now() / 1000) + ttlSeconds;
+  const payload = `renan-content-os:v1:${exp}`;
+  const sig = await hmac(secret(), payload);
+  return `${exp}.${sig}`;
 }
 
 export async function isValidSession(token?: string) {
   if (!token) return false;
+  const [expRaw, sig] = token.split(".");
+  const exp = Number(expRaw);
+  if (!sig || !Number.isFinite(exp) || exp < Math.floor(Date.now() / 1000)) return false;
   try {
-    const expected = await createSessionToken();
-    return safeEqual(token, expected);
+    const expected = await hmac(secret(), `renan-content-os:v1:${exp}`);
+    return safeEqual(sig, expected);
   } catch {
     return false;
   }
 }
 
 export async function signSlide(params: { index: string; title: string; body: string; exp: string }) {
-  const secret = process.env.CONTENT_OS_SESSION_SECRET;
-  if (!secret) throw new Error("CONTENT_OS_SESSION_SECRET não configurado.");
   const payload = [params.index, params.title, params.body, params.exp].join("\n");
-  return hmac(secret, payload);
+  return hmac(secret(), payload);
 }
 
 export async function verifySlide(params: { index: string; title: string; body: string; exp: string; sig: string }) {
