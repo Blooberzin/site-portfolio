@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Chamada from "../components/Chamada.astro";
-import { perfil, pilares, areas, casos } from "../dados/perfil";
+import { perfil, pilares, casos } from "../dados/perfil";
 import { getCollection } from "astro:content";
 
 const artigos = (await getCollection("artigos", ({ data }) => !data.rascunho))
@@ -16,98 +16,115 @@ const fmt = (d) =>
   });
 ---
 <Base titulo={perfil.nome + " · marketing, tecnologia e IA"}>
-  <section class="env abertura hero">
-    <p class="rotulo">{perfil.cargo} · {perfil.local}</p>
-    <h1 class="linha-um">Marketing × tecnologia × IA.</h1>
-    <p class="resumo">
-      Eu transformo problemas de marketing em estratégia, conteúdo e soluções
-      digitais. Gosto de descobrir o que o dado está dizendo — e construir o
-      que falta para fazer alguma coisa acontecer.
-    </p>
+  <section class="env hero">
+    <div class="hero-copy">
+      <span class="rotulo">marketing · tecnologia · IA</span>
+      <h1 class="linha-um">Eu trabalho onde essas três coisas se encontram.</h1>
+      <p class="hero-sub">
+        SEO, conteúdo, experimentação com IA e soluções digitais para transformar
+        problemas de marketing em coisas que funcionam.
+      </p>
 
-    <div class="hero-acoes" aria-label="Ações principais">
-      <a class="botao" href="#trabalhos">ver trabalhos</a>
-      <a class="botao vazado" href="/sobre/">conhecer meu trabalho</a>
+      <div class="hero-acoes" aria-label="Ações principais">
+        <a class="botao" href="#trabalhos">ver projetos</a>
+        <a class="botao vazado" href="/sobre/">sobre mim</a>
+      </div>
+    </div>
+
+    <aside class="hero-note" aria-label="Resumo profissional">
+      <div class="note-line">
+        <span>perfil</span>
+        <span class="note-dot" aria-hidden="true"></span>
+      </div>
+      <strong>{perfil.cargo}</strong>
+      <p>{perfil.local}</p>
+      <p>SEO · conteúdo · IA generativa · web</p>
+    </aside>
+  </section>
+
+  <section class="env secao">
+    <div class="section-head">
+      <div>
+        <span class="rotulo">agora</span>
+        <h2 class="section-title">O que faz sentido ver primeiro.</h2>
+      </div>
+      <p>Projetos e experiências organizados para você entender rápido onde eu atuo.</p>
+    </div>
+
+    <div class="proof-grid">
+      <div class="proof-item"><strong>SEO</strong><span>busca, arquitetura e conteúdo</span></div>
+      <div class="proof-item"><strong>IA aplicada</strong><span>LLMs, agentes e fluxos</span></div>
+      <div class="proof-item"><strong>Web</strong><span>protótipos, sites e integrações</span></div>
+      <div class="proof-item"><strong>Estratégia</strong><span>problema → hipótese → execução</span></div>
+    </div>
+  </section>
+
+  <section class="env secao" id="trabalhos">
+    <div class="section-head">
+      <div>
+        <span class="rotulo">01 · projetos</span>
+        <h2 class="section-title">Trabalho que mostra como eu penso.</h2>
+      </div>
+      <p>Menos lista de tarefas. Mais contexto, decisão e construção.</p>
+    </div>
+
+    <div class="cards-grid">
+      {casos.map((c, i) => (
+        <article class:list={["project-card", i === 0 || i === 3 ? "large" : ""]}>
+          <div class="project-top">
+            <span class="project-number">{String(i + 1).padStart(2, "0")}</span>
+            <span class="project-tag">{c.categoria}</span>
+          </div>
+          <h3>{c.titulo}</h3>
+          <p>{c.papel}</p>
+          <p>{c.texto}</p>
+          <span class="card-arrow" aria-hidden="true">↗</span>
+        </article>
+      ))}
     </div>
   </section>
 
   <section class="env secao">
-    <div class="trilho">
-      <div class="cabeca">
-        <span class="rotulo">01 · como eu penso</span>
-        <p>Menos ferramenta pela ferramenta. Mais contexto.</p>
-      </div>
-
-      <div class="itens">
-        {pilares.map((p) => (
-          <article class="item">
-            <h2>{p.titulo}</h2>
-            <p>{p.texto}</p>
-          </article>
-        ))}
+    <div class="section-head">
+      <div>
+        <span class="rotulo">02 · princípios</span>
+        <h2 class="section-title">Meu jeito de resolver.</h2>
       </div>
     </div>
-  </section>
 
-  <section class="env secao forte" id="trabalhos">
-    <div class="trilho">
-      <div class="cabeca">
-        <span class="rotulo">02 · o que eu faço</span>
-        <p>Quatro frentes que se cruzam no trabalho real.</p>
-      </div>
-
-      <div class="itens">
-        {areas.map((a) => (
-          <article class="item">
-            <h2>{a.titulo}</h2>
-            <p>{a.texto}</p>
-          </article>
-        ))}
-      </div>
+    <div class="cards-grid three">
+      {pilares.map((p, i) => (
+        <article class="principle-card">
+          <div class="card-top">
+            <span class="card-index">{String(i + 1).padStart(2, "0")}</span>
+          </div>
+          <h3>{p.titulo}</h3>
+          <p>{p.texto}</p>
+        </article>
+      ))}
     </div>
   </section>
 
   <section class="env secao">
-    <div class="trilho">
-      <div class="cabeca">
-        <span class="rotulo">03 · trabalhos selecionados</span>
-        <p>Experiência profissional, projetos paralelos e experimentos.</p>
+    <div class="section-head">
+      <div>
+        <span class="rotulo">03 · artigos</span>
+        <h2 class="section-title">Ideias que viraram método.</h2>
       </div>
-
-      <div class="itens">
-        {casos.map((c, i) => (
-          <article class="item case-item">
-            <div class="case-meta">
-              <span class="case-num">{String(i + 1).padStart(2, "0")}</span>
-              <span class="rotulo">{c.categoria}</span>
-            </div>
-            <h2>{c.titulo}</h2>
-            <p class="case-papel">{c.papel}</p>
-            <p>{c.texto}</p>
-          </article>
-        ))}
-      </div>
+      <a class="botao vazado" href="/artigos/">ver todos</a>
     </div>
-  </section>
 
-  <section class="env secao">
-    <div class="trilho">
-      <div class="cabeca">
-        <span class="rotulo">04 · escrevo e testo</span>
-        <p>Ideias que nasceram de problemas reais.</p>
-      </div>
-
-      <div class="lista-artigos">
-        {artigos.map((a) => (
-          <article class="artigo-linha">
-            <time datetime={a.data.data.toISOString()}>{fmt(a.data.data)}</time>
-            <a href={"/artigos/" + a.id + "/"}>
-              <h2>{a.data.titulo}</h2>
-              <p>{a.data.resumo}</p>
-            </a>
-          </article>
-        ))}
-      </div>
+    <div class="lista-artigos">
+      {artigos.map((a) => (
+        <article class="artigo-linha">
+          <time datetime={a.data.data.toISOString()}>{fmt(a.data.data)}</time>
+          <a href={"/artigos/" + a.id + "/"}>
+            <h2>{a.data.titulo}</h2>
+            <p>{a.data.resumo}</p>
+          </a>
+          <a class="artigo-arrow" href={"/artigos/" + a.id + "/"} aria-label={"Ler " + a.data.titulo}>↗</a>
+        </article>
+      ))}
     </div>
   </section>
 
