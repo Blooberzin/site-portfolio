@@ -114,7 +114,7 @@ button:focus-visible {
   gap: 8px;
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: .16em;
   line-height: 1.2;
