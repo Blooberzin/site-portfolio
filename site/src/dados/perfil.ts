@@ -2,7 +2,7 @@
 
 export const perfil = {
   nome: "Renan Barbosa",
-  cargo: "Analista de Marketing Júnior",
+  cargo: "Analista de Marketing",
   local: "Campinas, SP",
   email: "renanb501@gmail.com",
   linkedin: "https://www.linkedin.com/in/barbosa-renan/",
@@ -51,7 +51,7 @@ export const casos = [
     titulo: "UniSoma",
     categoria: "Experiência profissional",
     papel: "Marketing · SEO · conteúdo · web",
-    texto: "Atuação no ecossistema digital da empresa, conectando conteúdo, busca e evolução do site institucional.",
+    texto: "Atuação em marketing digital, conectando conteúdo, busca e evolução de experiências web.",
   },
   {
     titulo: "Vireo Digital",
