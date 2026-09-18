@@ -14,34 +14,38 @@ export const perfil = {
 
 export const pilares = [
   {
-    titulo: "Parto do dado",
-    texto: "Busco o sinal antes da solução: busca, comportamento, gargalo ou pergunta recorrente.",
+    titulo: "Entender antes de executar",
+    texto: "Procuro compreender o problema, seus objetivos e suas restrições antes de definir ferramentas ou soluções.",
   },
   {
-    titulo: "IA com critério",
-    texto: "Uso IA para acelerar pesquisa, rascunho, organização e auditoria — sem terceirizar o julgamento.",
+    titulo: "Dados como ponto de partida",
+    texto: "Utilizo dados de busca, comportamento e performance para identificar oportunidades, validar hipóteses e orientar decisões.",
   },
   {
-    titulo: "Construo quando falta",
-    texto: "Quando uma rotina pede uma ferramenta, prototipo uma solução simples que eu consiga entender e evoluir.",
+    titulo: "IA aplicada com critério",
+    texto: "Utilizo inteligência artificial para ampliar capacidade de análise, pesquisa, organização e execução, mantendo o julgamento humano como parte central do processo.",
+  },
+  {
+    titulo: "Tecnologia como ferramenta",
+    texto: "Quando o problema exige uma solução técnica, busco compreender, prototipar e desenvolver alternativas que possam ser testadas e evoluídas.",
   },
 ];
 
 export const areas = [
   {
     titulo: "SEO e descoberta em IA",
-    texto: "Arquitetura, conteúdo, otimização on-page e experimentos de descoberta.",
+    texto: "Estratégia de busca, análise de oportunidades, arquitetura de conteúdo e otimização orientada por dados.",
   },
   {
     titulo: "Conteúdo e estratégia",
-    texto: "Planejamento editorial, redação, revisão e transformação de dados em pauta.",
+    texto: "Planejamento e desenvolvimento de conteúdo alinhado à intenção de busca, objetivos de comunicação e prioridades de negócio.",
   },
   {
     titulo: "IA aplicada ao marketing",
-    texto: "LLMs, agentes, automações e fluxos para reduzir trabalho repetitivo.",
+    texto: "Experimentação com LLMs, agentes e automações aplicadas a processos de marketing, conteúdo e análise.",
   },
   {
-    titulo: "Ferramentas e experiências digitais",
+    titulo: "Web",
     texto: "Protótipos web, APIs e integrações para resolver problemas concretos.",
   },
 ];
@@ -50,26 +54,26 @@ export const casos = [
   {
     titulo: "UniSoma",
     categoria: "Experiência profissional",
-    papel: "Marketing · SEO · conteúdo · web",
-    texto: "Atuação em marketing digital, conectando conteúdo, busca e evolução de experiências web.",
+    papel: "marketing · SEO · conteúdo · web",
+    texto: "Atuação em marketing digital, com foco em estratégia de conteúdo, SEO e evolução de experiências web.",
   },
   {
     titulo: "Vireo Digital",
     categoria: "Projeto paralelo",
-    papel: "Estratégia · marketing · produto",
-    texto: "Projeto que explora o encontro entre posicionamento, design, performance e tecnologia.",
+    papel: "estratégia · marketing · produto",
+    texto: "Projeto voltado à aplicação de estratégia, posicionamento, design, performance e tecnologia na construção de soluções digitais.",
   },
   {
     titulo: "Personal Bot",
     categoria: "Experimento de produto",
-    papel: "Arquitetura · prototipação",
-    texto: "Protótipo com painel web, API, WhatsApp e banco de dados para explorar automação.",
+    papel: "automação · arquitetura · prototipação",
+    texto: "Protótipo desenvolvido para explorar a automação de processos por meio da integração entre painel web, API, WhatsApp e banco de dados.",
   },
   {
     titulo: "Este portfólio",
     categoria: "Projeto pessoal",
-    papel: "Design · conteúdo · SEO · desenvolvimento",
-    texto: "Astro + Vercel + GitHub em um laboratório contínuo de web, SEO, segurança e UX.",
+    papel: "design · conteúdo · SEO · desenvolvimento",
+    texto: "Projeto desenvolvido como ambiente contínuo de experimentação em desenvolvimento web, SEO técnico, segurança, performance e experiência do usuário.",
   },
 ];
 
@@ -82,17 +86,17 @@ export const lab = [
   {
     titulo: "Vireo Strategos",
     stack: "agentes · automação · estratégia",
-    texto: "Conceito de agente para apoiar tarefas de estratégia e operação em marketing.",
+    texto: "Conceito de agente de IA desenvolvido para explorar aplicações em estratégia e operação de marketing.",
   },
   {
     titulo: "Personal Bot",
     stack: "web · API · WhatsApp · PostgreSQL",
-    texto: "Protótipo para explorar automação de atendimento e operações por uma interface própria.",
+    texto: "Protótipo de automação que integra interface web, API, WhatsApp e banco de dados.",
   },
   {
     titulo: "Site-portfolio",
     stack: "Astro · Vercel · GitHub",
-    texto: "Laboratório para testar boas práticas de web, SEO, segurança e experiência.",
+    texto: "Ambiente de experimentação em desenvolvimento web, SEO, segurança, performance e experiência do usuário.",
   },
 ];
 
@@ -103,7 +107,7 @@ export const servicos = [
     texto: "Levantamento técnico e de conteúdo organizado por impacto, esforço e dependência.",
   },
   {
-    titulo: "Plano de pauta a partir de dados",
+    titulo: "Estratégia de conteúdo baseada em dados",
     entrega: "pauta + método",
     texto: "Transformação de sinais do Search Console e da intenção de busca em oportunidades editoriais.",
   },
