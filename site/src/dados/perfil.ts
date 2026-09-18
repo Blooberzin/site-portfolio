@@ -6,7 +6,7 @@ export const perfil = {
   cargo: "Analista de Marketing",
   local: "Campinas, SP",
   email: "renanb501@gmail.com",
-  linkedin: "https://www.linkedin.com/in/SEU-USUARIO",  // troque
+  linkedin: "https://www.linkedin.com/in/barbosa-renan/"
   instagram: "https://instagram.com/testeiaqui.py",
   descricaoSite:
     "Renan Barbosa, analista de marketing em Campinas. SEO, conteúdo e uso prático de IA no trabalho do dia a dia.",
