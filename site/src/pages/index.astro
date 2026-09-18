@@ -15,393 +15,117 @@ const fmt = (d) =>
     year: "numeric",
   });
 ---
-
 <Base titulo={perfil.nome + " · marketing, tecnologia e IA"}>
-
-  <!-- HERO -->
   <section class="env hero">
     <div class="hero-copy">
       <span class="rotulo">marketing · tecnologia · IA</span>
-
-      <h1 class="linha-um">
-        Estratégia de marketing conectada a
-        <span class="hero-destaque">dados, tecnologia e IA.</span>
-      </h1>
-
+      <h1 class="linha-um">Estratégia de marketing conectada a dados, tecnologia e IA.</h1>
       <p class="hero-sub">
-        Atuo com SEO, conteúdo, estratégia digital e inteligência artificial
-        aplicada, conectando diferentes disciplinas para transformar desafios
-        de marketing em soluções relevantes para o negócio.
+        Atuo com SEO, conteúdo, estratégia digital e inteligência artificial aplicada, conectando diferentes disciplinas para transformar desafios de marketing em soluções relevantes para o negócio.
       </p>
 
       <div class="hero-acoes" aria-label="Ações principais">
-        <a class="botao" href="#trabalhos">
-          conhecer projetos
-          <span aria-hidden="true">↘</span>
-        </a>
-
-        <a class="botao vazado" href="/sobre/">
-          sobre mim
-        </a>
+        <a class="botao" href="#trabalhos">conhecer projetos</a>
+        <a class="botao vazado" href="/sobre/">sobre mim</a>
       </div>
     </div>
 
-    <aside class="hero-profile" aria-label="Resumo profissional">
-      <div class="profile-top">
+    <aside class="hero-note" aria-label="Resumo profissional">
+      <div class="note-line">
         <span>perfil</span>
         <span class="note-dot" aria-hidden="true"></span>
       </div>
-
-      <div class="profile-main">
-        <strong>{perfil.cargo}</strong>
-        <span>{perfil.local}</span>
-      </div>
-
-      <ul class="profile-stack" aria-label="Áreas de atuação">
-        <li>SEO</li>
-        <li>Conteúdo</li>
-        <li>IA aplicada</li>
-        <li>Web</li>
-      </ul>
+      <strong>{perfil.cargo}</strong>
+      <p>{perfil.local}</p>
+      <p>SEO · conteúdo · IA generativa · web</p>
     </aside>
-
-    <div class="hero-footer" aria-hidden="true">
-      <span>Campinas · SP</span>
-      <span>Marketing + Tecnologia</span>
-    </div>
   </section>
 
-
-  <!-- ÁREAS -->
-  <section class="env secao areas">
+  <section class="env secao">
     <div class="section-head">
       <div>
-        <span class="rotulo">áreas de atuação</span>
-
-        <h2 class="section-title">
-          Estratégia apoiada por diferentes competências.
-        </h2>
+        <span class="rotulo">skills</span>
+        <h2 class="section-title">Áreas de atuação</h2>
       </div>
-
-      <p>
-        Minha experiência combina marketing e repertório técnico para analisar
-        problemas sob diferentes perspectivas e desenvolver soluções mais
-        completas.
-      </p>
+      <p>Minha experiência combina marketing e repertório técnico para analisar problemas sob diferentes perspectivas e desenvolver soluções mais completas.</p>
     </div>
 
-    <div class="areas-lista">
-
-      <article class="area-item">
-        <span class="area-num">01</span>
-
-        <h3>SEO</h3>
-
-        <p>
-          Estratégia de busca, análise de oportunidades, arquitetura de
-          conteúdo e otimização orientada por dados.
-        </p>
-      </article>
-
-      <article class="area-item">
-        <span class="area-num">02</span>
-
-        <h3>Conteúdo</h3>
-
-        <p>
-          Planejamento e desenvolvimento de conteúdo alinhado à intenção de
-          busca, objetivos de comunicação e prioridades de negócio.
-        </p>
-      </article>
-
-      <article class="area-item">
-        <span class="area-num">03</span>
-
-        <h3>IA aplicada</h3>
-
-        <p>
-          Experimentação com LLMs, agentes e automações aplicadas a processos
-          de marketing, conteúdo e análise.
-        </p>
-      </article>
-
-      <article class="area-item">
-        <span class="area-num">04</span>
-
-        <h3>Web</h3>
-
-        <p>
-          Desenvolvimento e evolução de experiências digitais, incluindo
-          sites, protótipos e integrações.
-        </p>
-      </article>
-
+    <div class="proof-grid">
+      <div class="proof-item"><strong>SEO</strong><span>estratégia de busca, análise de oportunidades, arquitetura de conteúdo e otimização orientada por dados.</span></div>
+      <div class="proof-item"><strong>Conteúdo</strong><span>Planejamento e desenvolvimento de conteúdo alinhado à intenção de busca, objetivos de comunicação e prioridades de negócio.</span></div>
+      <div class="proof-item"><strong>IA aplicada</strong><span>experimentação com LLMs, agentes e automações aplicadas a processos de marketing, conteúdo e análise.</span></div>
+      <div class="proof-item"><strong>Web</strong><span>Desenvolvimento e evolução de experiências digitais, incluindo sites, protótipos e integrações.</span></div>
     </div>
   </section>
 
-
-  <!-- PROJETOS -->
-  <section class="secao projetos" id="trabalhos">
-
-    <div class="env">
-      <div class="section-head projetos-head">
-        <div>
-          <span class="rotulo">01 · projetos</span>
-
-          <h2 class="section-title">
-            Estratégia, execução e experimentação na prática.
-          </h2>
-        </div>
-
-        <p>
-          Projetos que representam diferentes aspectos da minha atuação
-          profissional e do meu interesse por tecnologia.
-        </p>
-      </div>
-
-      <div class="projetos-grid">
-        {casos.map((c, i) => (
-          <article
-            class:list={[
-              "projeto",
-              i === 0 ? "projeto-destaque" : "",
-            ]}
-          >
-            <div class="projeto-visual">
-              <span class="projeto-num">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-
-              <span class="projeto-categoria">
-                {c.categoria}
-              </span>
-
-              <div class="projeto-marca">
-                {c.titulo}
-              </div>
-            </div>
-
-            <div class="projeto-info">
-              <div>
-                <span class="projeto-papel">
-                  {c.papel}
-                </span>
-
-                <h3>{c.titulo}</h3>
-
-                <p>{c.texto}</p>
-              </div>
-
-              <span class="projeto-arrow" aria-hidden="true">
-                ↗
-              </span>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-
-  </section>
-
-
-  <!-- MANIFESTO -->
-  <section class="manifesto">
-    <div class="env manifesto-grid">
-
-      <span class="rotulo manifesto-rotulo">
-        como trabalho
-      </span>
-
-      <div class="manifesto-copy">
-        <h2>
-          Decisões orientadas por
-          <span>contexto, dados e objetivos.</span>
-        </h2>
-
-        <p>
-          Ferramentas entram depois. Primeiro, procuro compreender o problema,
-          identificar os sinais relevantes e definir o que realmente precisa
-          ser resolvido.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- PRINCÍPIOS -->
-  <section class="env secao principios">
+  <section class="env secao" id="trabalhos">
     <div class="section-head">
       <div>
-        <span class="rotulo">02 · processo</span>
-
-        <h2 class="section-title">
-          Como transformo problema em execução.
-        </h2>
+        <span class="rotulo">01 · projetos</span>
+        <h2 class="section-title">Trabalho que mostra como eu penso.</h2>
       </div>
+      <p>Menos lista de tarefas. Mais contexto, decisão e construção.</p>
     </div>
 
-    <div class="principios-lista">
-      {pilares.map((p, i) => (
-        <article class="principio-linha">
-
-          <span class="principio-num">
-            {String(i + 1).padStart(2, "0")}
-          </span>
-
-          <h3>{p.titulo}</h3>
-
-          <p>{p.texto}</p>
-
+    <div class="cards-grid">
+      {casos.map((c, i) => (
+        <article class:list={["project-card", i === 0 || i === 3 ? "large" : ""]}>
+          <div class="project-top">
+            <span class="project-number">{String(i + 1).padStart(2, "0")}</span>
+            <span class="project-tag">{c.categoria}</span>
+          </div>
+          <h3>{c.titulo}</h3>
+          <p>{c.papel}</p>
+          <p>{c.texto}</p>
+          <span class="card-arrow" aria-hidden="true">↗</span>
         </article>
       ))}
     </div>
   </section>
 
-
-  <!-- AI LAB PREVIEW -->
-  <section class="env secao lab-preview">
-
+  <section class="env secao">
     <div class="section-head">
       <div>
-        <span class="rotulo">AI Lab</span>
-
-        <h2 class="section-title">
-          Experimentação aplicada à prática.
-        </h2>
+        <span class="rotulo">02 · princípios</span>
+        <h2 class="section-title">Meu jeito de resolver.</h2>
       </div>
-
-      <a class="botao vazado" href="/lab/">
-        acessar lab
-      </a>
     </div>
 
-    <div class="lab-console">
-
-      <div class="lab-console-head">
-        <span>experimento</span>
-        <span>área</span>
-        <span>status</span>
-      </div>
-
-      <a class="lab-row" href="/lab/">
-        <span class="lab-index">01</span>
-
-        <strong>IA no fluxo de conteúdo</strong>
-
-        <span class="lab-tech">
-          LLM · prompting · auditoria
-        </span>
-
-        <span class="lab-status">
-          <i></i>
-          em uso
-        </span>
-
-        <span class="lab-arrow">↗</span>
-      </a>
-
-      <a class="lab-row" href="/lab/">
-        <span class="lab-index">02</span>
-
-        <strong>Vireo Strategos</strong>
-
-        <span class="lab-tech">
-          agentes · estratégia
-        </span>
-
-        <span class="lab-status">
-          <i></i>
-          conceito
-        </span>
-
-        <span class="lab-arrow">↗</span>
-      </a>
-
-      <a class="lab-row" href="/lab/">
-        <span class="lab-index">03</span>
-
-        <strong>Personal Bot</strong>
-
-        <span class="lab-tech">
-          API · WhatsApp · PostgreSQL
-        </span>
-
-        <span class="lab-status">
-          <i></i>
-          protótipo
-        </span>
-
-        <span class="lab-arrow">↗</span>
-      </a>
-
-      <a class="lab-row" href="/lab/">
-        <span class="lab-index">04</span>
-
-        <strong>Site-portfólio</strong>
-
-        <span class="lab-tech">
-          Astro · Vercel · GitHub
-        </span>
-
-        <span class="lab-status">
-          <i></i>
-          ativo
-        </span>
-
-        <span class="lab-arrow">↗</span>
-      </a>
-
+    <div class="cards-grid three">
+      {pilares.map((p, i) => (
+        <article class="principle-card">
+          <div class="card-top">
+            <span class="card-index">{String(i + 1).padStart(2, "0")}</span>
+          </div>
+          <h3>{p.titulo}</h3>
+          <p>{p.texto}</p>
+        </article>
+      ))}
     </div>
-
   </section>
 
-
-  <!-- ARTIGOS -->
-  <section class="env secao artigos-home">
-
+  <section class="env secao">
     <div class="section-head">
       <div>
         <span class="rotulo">03 · artigos</span>
-
-        <h2 class="section-title">
-          Conhecimento construído a partir da prática.
-        </h2>
+        <h2 class="section-title">Ideias que viraram método.</h2>
       </div>
-
-      <a class="botao vazado" href="/artigos/">
-        ver todos
-      </a>
+      <a class="botao vazado" href="/artigos/">ver todos</a>
     </div>
 
     <div class="lista-artigos">
       {artigos.map((a) => (
         <article class="artigo-linha">
-
-          <time datetime={a.data.data.toISOString()}>
-            {fmt(a.data.data)}
-          </time>
-
+          <time datetime={a.data.data.toISOString()}>{fmt(a.data.data)}</time>
           <a href={"/artigos/" + a.id + "/"}>
             <h2>{a.data.titulo}</h2>
             <p>{a.data.resumo}</p>
           </a>
-
-          <a
-            class="artigo-arrow"
-            href={"/artigos/" + a.id + "/"}
-            aria-label={"Ler " + a.data.titulo}
-          >
-            ↗
-          </a>
-
+          <a class="artigo-arrow" href={"/artigos/" + a.id + "/"} aria-label={"Ler " + a.data.titulo}>↗</a>
         </article>
       ))}
     </div>
-
   </section>
 
-
   <Chamada titulo="Me conte o que você precisa resolver." />
-
 </Base>
