@@ -5,15 +5,24 @@ import { getCollection } from "astro:content";
 
 const artigos = (await getCollection("artigos", ({ data }) => !data.rascunho))
   .sort((a, b) => b.data.data - a.data.data);
-const fmt = (d) => d.toLocaleDateString("pt-BR", { day: "2-digit", month: "short", year: "numeric" });
+
+const fmt = (d) =>
+  d.toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
 ---
-<Base titulo={`Artigos · ${perfil.nome}`} descricao="Método, teste e o que não funcionou. Sobre SEO, conteúdo e IA aplicada ao trabalho real.">
+<Base
+  titulo={"Artigos · " + perfil.nome}
+  descricao="Notas sobre SEO, conteúdo, IA aplicada e experimentos de marketing."
+>
   <section class="env abertura">
-    <p class="rotulo">04 · artigos</p>
-    <h1 class="linha-um">O que eu testei e o que sobrou.</h1>
+    <p class="rotulo">03 · artigos</p>
+    <h1 class="linha-um">O que eu testo, aprendo e continuo usando.</h1>
     <p class="resumo">
-      A versão longa do que eu publico no <a href={perfil.instagram} rel="noopener">testeiaqui.py</a>.
-      Aqui cabe o método inteiro, com o que deu errado junto.
+      Textos sobre SEO, conteúdo, IA aplicada e pequenas descobertas que
+      começam como problema e terminam como método.
     </p>
   </section>
 
@@ -22,13 +31,17 @@ const fmt = (d) => d.toLocaleDateString("pt-BR", { day: "2-digit", month: "short
       {artigos.map((a) => (
         <article class="artigo-linha">
           <time datetime={a.data.data.toISOString()}>{fmt(a.data.data)}</time>
+
           <div>
-            <a href={`/artigos/${a.id}/`}>
-              <h3>{a.data.titulo}</h3>
+            <a href={"/artigos/" + a.id + "/"}>
+              <h2>{a.data.titulo}</h2>
               <p>{a.data.resumo}</p>
             </a>
+
             {a.data.tags.length > 0 && (
-              <div class="tags">{a.data.tags.map((t) => <span class="tag">{t}</span>)}</div>
+              <div class="tags">
+                {a.data.tags.map((t) => <span class="tag">{t}</span>)}
+              </div>
             )}
           </div>
         </article>

@@ -2,60 +2,98 @@
 import "../styles/global.css";
 import { perfil } from "../dados/perfil";
 
-const { titulo, descricao, tipo = "website" } = Astro.props;
+const {
+  titulo,
+  descricao,
+  tipo = "website",
+  imagem = "/og.svg",
+  dataPublicacao,
+} = Astro.props;
+
 const canonica = new URL(Astro.url.pathname, Astro.site);
 const desc = descricao ?? perfil.descricaoSite;
+const imagemAbsoluta = new URL(imagem, Astro.site).href;
+
 const rotas = [
   { href: "/", texto: "início" },
   { href: "/sobre/", texto: "sobre" },
   { href: "/artigos/", texto: "artigos" },
+  { href: "/lab/", texto: "lab" },
   { href: "/servicos/", texto: "serviços" },
 ];
+
 const aqui = Astro.url.pathname;
+const estaAtiva = (href) =>
+  href === "/" ? aqui === "/" : aqui.startsWith(href);
 ---
 <!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f7f5" />
+    <meta name="color-scheme" content="light dark" />
+
     <title>{titulo}</title>
     <meta name="description" content={desc} />
     <link rel="canonical" href={canonica} />
+
+    <meta property="og:site_name" content={perfil.nome} />
     <meta property="og:title" content={titulo} />
     <meta property="og:description" content={desc} />
     <meta property="og:type" content={tipo} />
     <meta property="og:url" content={canonica} />
     <meta property="og:locale" content="pt_BR" />
+    <meta property="og:image" content={imagemAbsoluta} />
+    <meta property="og:image:type" content="image/svg+xml" />
+
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={titulo} />
+    <meta name="twitter:description" content={desc} />
+    <meta name="twitter:image" content={imagemAbsoluta} />
+
+    {tipo === "article" && dataPublicacao && (
+      <meta property="article:published_time" content={dataPublicacao} />
+    )}
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title={perfil.nome} href="/rss.xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" />
-    <slot name="cabeca" />
   </head>
+
   <body>
+    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
     <header class="cabecalho">
       <div class="env">
-        <a class="marca" href="/">{perfil.nome.toLowerCase().replace(" ", "")}</a>
-        <nav>
+        <a class="marca" href="/" aria-label={perfil.nome + " — início"}>
+          {perfil.nome.toLowerCase().replace(" ", "")}
+        </a>
+
+        <nav aria-label="Navegação principal">
           {rotas.map((r) => (
-            <a href={r.href} aria-current={aqui === r.href ? "page" : undefined}>{r.texto}</a>
+            <a
+              href={r.href}
+              aria-current={estaAtiva(r.href) ? "page" : undefined}
+            >
+              {r.texto}
+            </a>
           ))}
         </nav>
       </div>
     </header>
 
-    <main>
+    <main id="conteudo">
       <slot />
     </main>
 
     <footer class="rodape">
       <div class="env">
         <span>{perfil.nome} · {perfil.local}</span>
-        <a class="direita" href={`mailto:${perfil.email}`}>e-mail</a>
-        <a href={perfil.linkedin} rel="me noopener">linkedin</a>
-        <a href={perfil.instagram} rel="me noopener">instagram</a>
+        <a class="direita" href={"mailto:" + perfil.email}>e-mail</a>
+        <a href={perfil.linkedin} rel="me noopener noreferrer">linkedin</a>
+        <a href={perfil.github} rel="me noopener noreferrer">github</a>
+        <a href={perfil.instagram} rel="me noopener noreferrer">instagram</a>
         <a href="/rss.xml">rss</a>
       </div>
     </footer>

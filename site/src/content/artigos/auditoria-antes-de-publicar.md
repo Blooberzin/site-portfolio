@@ -1,69 +1,70 @@
 ---
 titulo: "Pare de pedir para a IA melhorar seu texto"
-resumo: "Pedir melhoria e pedir auditoria são coisas diferentes, e só uma delas mantém você no comando do texto. O fluxo de sete verificações que eu rodo antes de publicar."
+resumo: "Pedir melhoria e pedir auditoria são tarefas diferentes. O fluxo que eu uso para encontrar problemas sem terceirizar a decisão editorial."
 data: 2026-09-09
 tags: ["seo", "conteúdo", "ia"]
 ---
 
-Quando você relê o próprio texto, você lê o que quis escrever. O cérebro
-completa a frase antes de chegar no erro. É por isso que o problema costuma
-aparecer só depois de o texto estar no ar.
+Quando você relê um texto próprio, existe um problema difícil de perceber: você sabe o que queria dizer.
 
-O reflexo comum é pedir ajuda para uma IA. E o pedido, quase sempre, é o
-errado.
+Seu cérebro completa a frase antes de encontrar a falha.
 
-## Melhorar e auditar não são a mesma coisa
+Meu reflexo antigo era pedir para uma IA “melhorar o texto”. Hoje tento pedir outra coisa.
 
-Se você pede para a IA melhorar o texto, ela devolve outro texto. E aí acontece
-uma coisa silenciosa: você lê a versão dela, acha melhor, e aceita. Você parou
-de pensar sobre o assunto e passou a escolher entre duas redações.
+## Melhorar e auditar não são a mesma tarefa
 
-O texto quase sempre fica pior e parece melhor. Perde as suas escolhas, ganha
-fluidez genérica.
+Quando você pede melhoria, o modelo devolve outra versão.
 
-Se você pede para ela **achar problemas sem resolver**, o trabalho continua
-sendo seu. Ela vira um par de olhos que não sabe o que você quis dizer, que é
-exatamente o que falta na sua própria releitura.
+Ela pode ficar mais clara. Pode ficar mais curta. Pode até ficar melhor.
+
+Mas existe um efeito colateral: a decisão editorial começa a migrar de você para o modelo.
+
+Quando eu peço **auditoria**, o trabalho continua sendo meu.
+
+Quero que a IA aponte o problema e pare ali.
 
 ## As sete verificações
 
-Estas são as categorias que eu peço para o modelo procurar. Elas cobrem o tipo
-de erro que sobrevive à revisão humana.
+Estas são as categorias que eu costumo procurar:
 
 | # | o que procurar | como se manifesta |
 |---|----------------|-------------------|
-| 01 | afirmação sem lastro | número ou dado sem fonte no próprio texto |
-| 02 | contradição interna | dois trechos que não podem ser verdade juntos |
-| 03 | promessa aberta | o título promete, o corpo não entrega |
-| 04 | termo instável | a mesma palavra com dois sentidos |
-| 05 | parágrafo parado | repete o anterior sem avançar |
-| 06 | trecho genérico | serviria para qualquer assunto |
-| 07 | resposta tardia | a intenção de busca só é atendida no fim |
+| 01 | afirmação sem lastro | número, dado ou afirmação factual sem fonte ou contexto |
+| 02 | contradição interna | dois trechos que parecem defender coisas incompatíveis |
+| 03 | promessa aberta | o título promete algo que o corpo não entrega |
+| 04 | termo instável | a mesma palavra muda de sentido ao longo do texto |
+| 05 | parágrafo parado | o texto repete a ideia anterior sem avançar |
+| 06 | trecho genérico | poderia estar em quase qualquer artigo do assunto |
+| 07 | resposta tardia | a pergunta principal só é respondida depois de muita introdução |
 
-A 01 é a que mais pega coisa. A 06 é a que mais dói, porque quase sempre é o
-parágrafo que você escreveu no automático para fechar uma seção.
+O objetivo não é fazer a IA “dar nota” para o texto.
 
-## As três linhas que fazem funcionar
+É transformá-la em um segundo par de olhos.
 
-O conteúdo das categorias importa menos que estas três instruções:
+## As três linhas que mudam o resultado
 
-```
+Meu prompt base começa assim:
+
+~~~
 Não reescreva nada.
 Cite o trecho exato antes de comentar.
 No fim, liste só os 3 problemas mais graves.
-```
+~~~
 
-A terceira é a que mais muda o resultado. Sem ela vem uma lista de vinte
-apontamentos, e diante de vinte apontamentos você faz uma de duas coisas:
-aceita a lista inteira sem pensar, ou ignora a lista inteira. Nenhuma das duas
-é revisão.
+A terceira instrução é importante.
 
-Com três, você lê os três e julga os três.
+Uma lista com vinte problemas parece completa, mas também aumenta a chance de você aceitar tudo no automático ou ignorar tudo.
+
+Com três, você precisa julgar.
 
 ## O limite
 
-Ele não sabe se o dado é verdadeiro. Não abre a fonte, não confere o número.
-Ele só aponta que a afirmação está sem lastro dentro do texto.
+A IA pode apontar que um número está sem fonte. Isso não significa que o número esteja errado.
 
-Conferir continua sendo seu papel. O que muda é que agora você sabe onde
-olhar.
+Pode encontrar uma contradição aparente que faz sentido quando você conhece o contexto.
+
+Pode chamar um trecho de genérico porque não tem acesso ao motivo pelo qual você escolheu aquele exemplo.
+
+Por isso a auditoria serve para encontrar lugares onde olhar.
+
+Conferir, decidir e publicar continuam sendo trabalho humano.

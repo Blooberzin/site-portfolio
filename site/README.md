@@ -1,90 +1,78 @@
 # Site do Renan Barbosa
 
-Portfólio com blog, feito em Astro. Estático, rápido e com SEO resolvido de
-fábrica: sitemap, RSS, canônica, Open Graph e dados estruturados de artigo.
+Portfólio pessoal em Astro, com geração estática, conteúdo em Markdown, sitemap, RSS, Open Graph e dados estruturados para artigos.
 
-## Rodar
+## Desenvolvimento
 
-```bash
+Rodar localmente:
+
+~~~bash
+cd site
 npm install
-npm run dev      # abre em localhost:4321
-npm run build    # gera a pasta dist/
-```
+npm run dev
+~~~
 
-## Publicar na Vercel
+Build de produção:
 
-1. Suba esta pasta para um repositório no GitHub.
-2. Em vercel.com, importe o repositório. Ela reconhece Astro sozinha.
-3. Em Settings > Domains, ligue o seu domínio.
-4. Troque o campo `site` no `astro.config.mjs` pelo domínio real. Sem isso o
-   sitemap e as URLs canônicas saem erradas.
+~~~bash
+cd site
+npm run build
+npm run preview
+~~~
 
-Hospedagem é gratuita nesse formato. O único custo é o domínio.
+## Arquitetura
 
-## O que você precisa preencher antes de divulgar
+~~~
+site/
+  public/                 arquivos públicos, favicon e assets
+  src/
+    components/           blocos reutilizáveis
+    content/artigos/      artigos em Markdown
+    dados/perfil.ts       conteúdo profissional centralizado
+    layouts/Base.astro    estrutura, metadata e navegação
+    pages/                rotas do site
+    styles/global.css     sistema visual
+  astro.config.mjs
+  package.json
+  package-lock.json
+vercel.json               configuração de build e headers
+.github/workflows/site.yml
+~~~
 
-Tudo que falta está em `src/dados/perfil.ts`.
+## Conteúdo
 
-- **`perfil.linkedin`** está com uma URL falsa. Troque.
-- **`resultados`** está com três espaços vazios marcados como `exemplo: true`.
-  Enquanto essa marca existir, o site mostra uma caixa tracejada e a etiqueta
-  "preencher" na tela, de propósito, pra você não publicar número inventado sem
-  perceber. Coloque o número real e apague a linha `exemplo: true`.
-- **`casos`** tem dois casos com a estrutura pronta e o conteúdo pela metade.
-  Preencha seguindo o padrão: o que existia antes, o que você fez, o que mudou
-  depois. Sem o "depois" não é caso, é descrição de tarefa.
-- **`src/pages/sobre.astro`** tem um parágrafo em negrito pedindo que você
-  reescreva a seção na sua voz. O que está lá é verdadeiro, mas foi escrito por
-  mim.
-- **`src/pages/servicos.astro`** tem três serviços de exemplo. Mantenha só os
-  que você realmente consegue entregar tendo um emprego em tempo integral.
+As informações profissionais recorrentes ficam em:
 
-## Publicar um artigo
+site/src/dados/perfil.ts
 
-Crie um arquivo `.md` em `src/content/artigos/`. O nome do arquivo vira a URL.
+Os artigos ficam em:
 
-```markdown
+site/src/content/artigos/
+
+Front matter de artigo:
+
+~~~yaml
 ---
-titulo: "Título do artigo"
-resumo: "Uma frase. Vira a meta description, então escreva pensando na busca."
+titulo: "Título"
+resumo: "Descrição curta"
 data: 2026-09-20
 tags: ["seo", "ia"]
 rascunho: false
 ---
+~~~
 
-O texto começa aqui.
-```
+Use rascunho: true para manter um artigo fora do site e do RSS.
 
-Com `rascunho: true`, o artigo não aparece no site nem no RSS. Serve pra deixar
-começado sem publicar.
+## Vercel
 
-## Os dois artigos que já estão aí
+O projeto usa site/ como Root Directory na Vercel. O vercel.json mantém o framework como Astro, define npm ci + npm run build e adiciona headers de segurança.
 
-`auditoria-antes-de-publicar.md` e `pauta-search-console.md` são rascunhos que eu
-escrevi a partir do que você já me contou. O método é seu, a redação é minha.
-Reescreva na sua voz antes de divulgar, principalmente qualquer trecho que conte
-uma história pessoal.
+Antes de usar um domínio próprio, atualize a propriedade site em astro.config.mjs e o sitemap em public/robots.txt.
 
-## Como isso conversa com o testeiaqui.py
+## Princípios
 
-O Instagram é a versão curta e o site é a versão longa. O caminho é:
-
-- Reels ou carrossel levanta a ideia
-- o link da bio aponta para `/artigos/`
-- o artigo entrega o método inteiro e ranqueia no Google
-
-Isso resolve o problema de conteúdo de Instagram morrer em 48 horas. O artigo
-continua trazendo gente meses depois, e é ele que o recrutador acha quando
-procura seu nome.
-
-## Estrutura
-
-```
-src/
-  dados/perfil.ts          tudo que muda com o tempo
-  content/artigos/         seus artigos em markdown
-  layouts/Base.astro       cabeçalho, rodapé, meta tags
-  components/Chamada.astro bloco de contato reaproveitado
-  pages/                   as páginas
-  styles/global.css        o sistema visual inteiro
-```
+- conteúdo profissional sem métricas inventadas;
+- IA como ferramenta de aceleração e auditoria, não como substituta de julgamento;
+- performance por simplicidade;
+- poucas dependências;
+- SEO técnico como parte do produto, não como acabamento.

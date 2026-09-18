@@ -1,0 +1,43 @@
+---
+import Base from "../layouts/Base.astro";
+import Chamada from "../components/Chamada.astro";
+import { perfil, lab } from "../dados/perfil";
+---
+<Base
+  titulo={"AI Lab · " + perfil.nome}
+  descricao="Laboratório de experimentação com IA generativa, automação, agentes e produtos digitais."
+>
+  <section class="env abertura">
+    <p class="rotulo">04 · ai lab</p>
+    <h1 class="linha-um">Eu testo a tecnologia no trabalho real.</h1>
+    <p class="resumo">
+      Nem todo experimento vira produto. Alguns viram método, outros viram
+      código descartado e alguns só servem para descobrir uma pergunta melhor.
+      Este espaço registra os que vale a pena continuar explorando.
+    </p>
+  </section>
+
+  <section class="env secao forte">
+    <div class="trilho">
+      <div class="cabeca">
+        <span class="rotulo">experimentos</span>
+        <p>Protótipos, fluxos e ideias em evolução.</p>
+      </div>
+
+      <div class="itens">
+        {lab.map((item, i) => (
+          <article class="item lab-item">
+            <div class="case-meta">
+              <span class="case-num">{String(i + 1).padStart(2, "0")}</span>
+              <span class="rotulo">{item.stack}</span>
+            </div>
+            <h2>{item.titulo}</h2>
+            <p>{item.texto}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Chamada titulo="Tenho uma ideia que vale testar." />
+</Base>

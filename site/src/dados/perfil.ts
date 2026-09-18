@@ -1,71 +1,133 @@
-// Tudo que muda com o tempo mora aqui. Editar este arquivo é suficiente
-// para atualizar o site inteiro, sem mexer em página nenhuma.
+// Conteúdo central do site. Atualize aqui informações que mudam com o tempo.
 
 export const perfil = {
   nome: "Renan Barbosa",
-  cargo: "Analista de Marketing",
+  cargo: "Analista de Marketing Júnior",
   local: "Campinas, SP",
   email: "renanb501@gmail.com",
-  linkedin: "https://www.linkedin.com/in/SEU-USUARIO",  // troque
+  linkedin: "https://www.linkedin.com/in/barbosa-renan/",
   instagram: "https://instagram.com/testeiaqui.py",
+  github: "https://github.com/Blooberzin",
   descricaoSite:
-    "Renan Barbosa, analista de marketing em Campinas. SEO, conteúdo e uso prático de IA no trabalho do dia a dia.",
+    "Renan Barbosa é analista de marketing com foco em SEO, conteúdo, IA generativa e soluções digitais.",
 };
 
-// SUBSTITUA pelos seus números reais e apague `exemplo: true`.
-// Enquanto `exemplo` for true, o site marca o número na tela como exemplo,
-// justamente para você não publicar dado inventado sem perceber.
-export const resultados = [
-  { valor: "—", desc: "crescimento de tráfego orgânico no período que você escolher", exemplo: true },
-  { valor: "—", desc: "artigos publicados e otimizados", exemplo: true },
-  { valor: "—", desc: "vídeos editados para o canal", exemplo: true },
+export const pilares = [
+  {
+    titulo: "Parto do dado",
+    texto:
+      "Antes de criar uma pauta ou uma solução, procuro o sinal que já existe: busca, comportamento, gargalo ou pergunta recorrente.",
+  },
+  {
+    titulo: "Uso IA com critério",
+    texto:
+      "IA entra onde acelera trabalho sem terceirizar a decisão. Rascunho, transcrição, pesquisa e auditoria são terreno fértil; contexto e julgamento continuam comigo.",
+  },
+  {
+    titulo: "Construo quando falta ferramenta",
+    texto:
+      "Quando uma planilha, rotina ou fluxo começa a atrapalhar mais do que ajudar, eu prototipo uma solução digital que consiga entender, manter e evoluir.",
+  },
 ];
 
 export const areas = [
   {
-    titulo: "SEO e GEO",
+    titulo: "SEO e descoberta em IA",
     texto:
-      "Auditoria técnica, arquitetura de conteúdo, pesquisa de pauta a partir de dado de busca e otimização para aparecer também nas respostas de IA. É onde eu passo a maior parte do tempo.",
+      "Arquitetura de conteúdo, pesquisa a partir de dados de busca, otimização on-page e experimentos para ampliar a descoberta em mecanismos de busca e respostas gerativas.",
   },
   {
-    titulo: "Conteúdo com IA no fluxo",
+    titulo: "Conteúdo e estratégia",
     texto:
-      "Uso IA para acelerar as etapas certas: rascunho, transcrição, auditoria de texto. Mantenho fora das etapas onde ela erra caro, como conferir dado e definir posicionamento.",
+      "Planejamento editorial, redação, revisão e transformação de dados e problemas reais em conteúdo que responde a uma intenção clara.",
   },
   {
-    titulo: "Edição de vídeo",
+    titulo: "IA aplicada ao marketing",
     texto:
-      "Corte, legenda e finalização de vídeo institucional e de conteúdo curto. Trabalho com fluxo de edição por transcrição, que reduz bastante o tempo de corte.",
+      "Experimentação com LLMs, agentes, automações e fluxos que reduzem trabalho repetitivo sem transformar o marketing em uma fábrica de texto genérico.",
   },
   {
-    titulo: "Ferramentas sob medida",
+    titulo: "Ferramentas e experiências digitais",
     texto:
-      "Quando a planilha não dá conta, eu construo. WordPress, React, Next.js e Supabase, com IA no processo. Não venho da engenharia, e por isso construo só o que resolve um problema meu de verdade.",
+      "Protótipos com web, APIs e serviços como React, Next.js, Astro e Supabase para resolver problemas concretos de trabalho.",
   },
 ];
 
-// SUBSTITUA os casos pelos seus. Mantenha a estrutura:
-// o que existia antes, o que você fez, o que mudou depois.
 export const casos = [
   {
-    titulo: "Redesenho do site da UniSoma",
-    papel: "Condução do projeto e administração do WordPress",
+    titulo: "UniSoma",
+    categoria: "Experiência profissional",
+    papel: "Marketing, SEO, conteúdo e web",
     texto:
-      "Reestruturação completa do site institucional, da arquitetura de informação ao tema. Descreva aqui o estado anterior, a decisão principal que você tomou e o efeito medido depois.",
-    exemplo: true,
+      "Atuação no ecossistema digital da empresa: SEO, blog, WordPress, conteúdo em vídeo e participação na evolução do site institucional. O foco do case deve mostrar decisões tomadas, não apenas tarefas executadas.",
   },
   {
-    titulo: "Pauta de blog a partir do Search Console",
-    papel: "Método próprio, em uso hoje",
+    titulo: "Vireo Digital",
+    categoria: "Projeto paralelo",
+    papel: "Estratégia, marketing e produto",
     texto:
-      "Fluxo que parte das buscas com impressão alta e clique baixo para gerar pauta com intenção já mapeada. Descreva aqui quantas pautas saíram e o que aconteceu com elas.",
-    exemplo: true,
+      "Projeto construído com foco em design, estratégia e performance, explorando como posicionamento, identidade e tecnologia podem trabalhar juntos em uma operação enxuta.",
   },
   {
-    titulo: "testeiaqui.py",
-    papel: "Projeto pessoal",
+    titulo: "Personal Bot",
+    categoria: "Experimento de produto",
+    papel: "Arquitetura e prototipação",
     texto:
-      "Perfil onde eu testo ferramentas de IA no trabalho real e publico o que sobrevive, incluindo o que não funcionou. Identidade visual, conteúdo e produção feitos por mim.",
-    exemplo: false,
+      "Protótipo de uma solução com painel web, API, WhatsApp e banco de dados. Um laboratório para entender na prática como transformar uma necessidade operacional em produto.",
+  },
+  {
+    titulo: "Este portfólio",
+    categoria: "Projeto pessoal",
+    papel: "Design, conteúdo, SEO e desenvolvimento",
+    texto:
+      "Site estático em Astro, hospedado na Vercel e versionado no GitHub. A própria construção virou parte do case: performance, segurança, SEO técnico e conteúdo trabalham juntos.",
+  },
+];
+
+export const lab = [
+  {
+    titulo: "IA no fluxo de conteúdo",
+    stack: "LLMs · prompting · auditoria",
+    texto:
+      "Experimentação com IA como camada de análise e aceleração, sem entregar a ela a decisão editorial final.",
+  },
+  {
+    titulo: "Vireo Strategos",
+    stack: "agentes · automação · estratégia",
+    texto:
+      "Conceito de agente para apoiar tarefas de estratégia e operação dentro de um contexto de marketing.",
+  },
+  {
+    titulo: "Personal Bot",
+    stack: "web · API · WhatsApp · PostgreSQL",
+    texto:
+      "Protótipo para explorar automação de atendimento e operações por uma interface própria.",
+  },
+  {
+    titulo: "Site-portfolio",
+    stack: "Astro · Vercel · GitHub",
+    texto:
+      "Laboratório contínuo para testar boas práticas de web, SEO, segurança, conteúdo e experiência.",
+  },
+];
+
+export const servicos = [
+  {
+    titulo: "Auditoria de SEO",
+    entrega: "documento + prioridades práticas",
+    texto:
+      "Levantamento técnico e de conteúdo com uma lista de correções organizada por impacto, esforço e dependência.",
+  },
+  {
+    titulo: "Plano de pauta a partir de dados",
+    entrega: "pauta + método documentado",
+    texto:
+      "Transformação de sinais do Search Console e da intenção de busca em oportunidades editoriais mais específicas.",
+  },
+  {
+    titulo: "Estratégia e experimentação com IA",
+    entrega: "diagnóstico + protótipo de fluxo",
+    texto:
+      "Mapeamento de tarefas em que IA pode acelerar o trabalho e desenho de um fluxo simples para testar a hipótese.",
   },
 ];
