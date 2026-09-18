@@ -59,6 +59,8 @@ const estaAtiva = (href) =>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title={perfil.nome} href="/rss.xml" />
+
+    <slot name="cabeca" />
   </head>
 
   <body>
@@ -79,6 +81,7 @@ const estaAtiva = (href) =>
               {r.texto}
             </a>
           ))}
+          <a class="nav-cta" href={"mailto:" + perfil.email}>falar comigo</a>
         </nav>
       </div>
     </header>

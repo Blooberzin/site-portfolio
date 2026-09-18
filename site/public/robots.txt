@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://site-portfolio-renan-eba4.vercel.app/sitemap-index.xml
+Sitemap: https://barbosarenan.com.br/sitemap-index.xml

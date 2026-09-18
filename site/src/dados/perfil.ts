@@ -9,47 +9,40 @@ export const perfil = {
   instagram: "https://instagram.com/testeiaqui.py",
   github: "https://github.com/Blooberzin",
   descricaoSite:
-    "Renan Barbosa é analista de marketing com foco em SEO, conteúdo, IA generativa e soluções digitais.",
+    "Renan Barbosa atua na interseção entre marketing, tecnologia, SEO e IA aplicada.",
 };
 
 export const pilares = [
   {
     titulo: "Parto do dado",
-    texto:
-      "Antes de criar uma pauta ou uma solução, procuro o sinal que já existe: busca, comportamento, gargalo ou pergunta recorrente.",
+    texto: "Busco o sinal antes da solução: busca, comportamento, gargalo ou pergunta recorrente.",
   },
   {
-    titulo: "Uso IA com critério",
-    texto:
-      "IA entra onde acelera trabalho sem terceirizar a decisão. Rascunho, transcrição, pesquisa e auditoria são terreno fértil; contexto e julgamento continuam comigo.",
+    titulo: "IA com critério",
+    texto: "Uso IA para acelerar pesquisa, rascunho, organização e auditoria — sem terceirizar o julgamento.",
   },
   {
-    titulo: "Construo quando falta ferramenta",
-    texto:
-      "Quando uma planilha, rotina ou fluxo começa a atrapalhar mais do que ajudar, eu prototipo uma solução digital que consiga entender, manter e evoluir.",
+    titulo: "Construo quando falta",
+    texto: "Quando uma rotina pede uma ferramenta, prototipo uma solução simples que eu consiga entender e evoluir.",
   },
 ];
 
 export const areas = [
   {
     titulo: "SEO e descoberta em IA",
-    texto:
-      "Arquitetura de conteúdo, pesquisa a partir de dados de busca, otimização on-page e experimentos para ampliar a descoberta em mecanismos de busca e respostas gerativas.",
+    texto: "Arquitetura, conteúdo, otimização on-page e experimentos de descoberta.",
   },
   {
     titulo: "Conteúdo e estratégia",
-    texto:
-      "Planejamento editorial, redação, revisão e transformação de dados e problemas reais em conteúdo que responde a uma intenção clara.",
+    texto: "Planejamento editorial, redação, revisão e transformação de dados em pauta.",
   },
   {
     titulo: "IA aplicada ao marketing",
-    texto:
-      "Experimentação com LLMs, agentes, automações e fluxos que reduzem trabalho repetitivo sem transformar o marketing em uma fábrica de texto genérico.",
+    texto: "LLMs, agentes, automações e fluxos para reduzir trabalho repetitivo.",
   },
   {
     titulo: "Ferramentas e experiências digitais",
-    texto:
-      "Protótipos com web, APIs e serviços como React, Next.js, Astro e Supabase para resolver problemas concretos de trabalho.",
+    texto: "Protótipos web, APIs e integrações para resolver problemas concretos.",
   },
 ];
 
@@ -57,30 +50,26 @@ export const casos = [
   {
     titulo: "UniSoma",
     categoria: "Experiência profissional",
-    papel: "Marketing, SEO, conteúdo e web",
-    texto:
-      "Atuação no ecossistema digital da empresa: SEO, blog, WordPress, conteúdo em vídeo e participação na evolução do site institucional. O foco do case deve mostrar decisões tomadas, não apenas tarefas executadas.",
+    papel: "Marketing · SEO · conteúdo · web",
+    texto: "Atuação no ecossistema digital da empresa, conectando conteúdo, busca e evolução do site institucional.",
   },
   {
     titulo: "Vireo Digital",
     categoria: "Projeto paralelo",
-    papel: "Estratégia, marketing e produto",
-    texto:
-      "Projeto construído com foco em design, estratégia e performance, explorando como posicionamento, identidade e tecnologia podem trabalhar juntos em uma operação enxuta.",
+    papel: "Estratégia · marketing · produto",
+    texto: "Projeto que explora o encontro entre posicionamento, design, performance e tecnologia.",
   },
   {
     titulo: "Personal Bot",
     categoria: "Experimento de produto",
-    papel: "Arquitetura e prototipação",
-    texto:
-      "Protótipo de uma solução com painel web, API, WhatsApp e banco de dados. Um laboratório para entender na prática como transformar uma necessidade operacional em produto.",
+    papel: "Arquitetura · prototipação",
+    texto: "Protótipo com painel web, API, WhatsApp e banco de dados para explorar automação.",
   },
   {
     titulo: "Este portfólio",
     categoria: "Projeto pessoal",
-    papel: "Design, conteúdo, SEO e desenvolvimento",
-    texto:
-      "Site estático em Astro, hospedado na Vercel e versionado no GitHub. A própria construção virou parte do case: performance, segurança, SEO técnico e conteúdo trabalham juntos.",
+    papel: "Design · conteúdo · SEO · desenvolvimento",
+    texto: "Astro + Vercel + GitHub em um laboratório contínuo de web, SEO, segurança e UX.",
   },
 ];
 
@@ -88,46 +77,39 @@ export const lab = [
   {
     titulo: "IA no fluxo de conteúdo",
     stack: "LLMs · prompting · auditoria",
-    texto:
-      "Experimentação com IA como camada de análise e aceleração, sem entregar a ela a decisão editorial final.",
+    texto: "IA como camada de análise e aceleração, mantendo a decisão editorial humana.",
   },
   {
     titulo: "Vireo Strategos",
     stack: "agentes · automação · estratégia",
-    texto:
-      "Conceito de agente para apoiar tarefas de estratégia e operação dentro de um contexto de marketing.",
+    texto: "Conceito de agente para apoiar tarefas de estratégia e operação em marketing.",
   },
   {
     titulo: "Personal Bot",
     stack: "web · API · WhatsApp · PostgreSQL",
-    texto:
-      "Protótipo para explorar automação de atendimento e operações por uma interface própria.",
+    texto: "Protótipo para explorar automação de atendimento e operações por uma interface própria.",
   },
   {
     titulo: "Site-portfolio",
     stack: "Astro · Vercel · GitHub",
-    texto:
-      "Laboratório contínuo para testar boas práticas de web, SEO, segurança, conteúdo e experiência.",
+    texto: "Laboratório para testar boas práticas de web, SEO, segurança e experiência.",
   },
 ];
 
 export const servicos = [
   {
     titulo: "Auditoria de SEO",
-    entrega: "documento + prioridades práticas",
-    texto:
-      "Levantamento técnico e de conteúdo com uma lista de correções organizada por impacto, esforço e dependência.",
+    entrega: "diagnóstico + prioridades",
+    texto: "Levantamento técnico e de conteúdo organizado por impacto, esforço e dependência.",
   },
   {
     titulo: "Plano de pauta a partir de dados",
-    entrega: "pauta + método documentado",
-    texto:
-      "Transformação de sinais do Search Console e da intenção de busca em oportunidades editoriais mais específicas.",
+    entrega: "pauta + método",
+    texto: "Transformação de sinais do Search Console e da intenção de busca em oportunidades editoriais.",
   },
   {
-    titulo: "Estratégia e experimentação com IA",
-    entrega: "diagnóstico + protótipo de fluxo",
-    texto:
-      "Mapeamento de tarefas em que IA pode acelerar o trabalho e desenho de um fluxo simples para testar a hipótese.",
+    titulo: "Experimentação com IA",
+    entrega: "diagnóstico + protótipo",
+    texto: "Mapeamento de tarefas e desenho de fluxos simples para testar onde IA realmente ajuda.",
   },
 ];
