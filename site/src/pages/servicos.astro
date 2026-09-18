@@ -1,38 +1,19 @@
 ---
 import Base from "../layouts/Base.astro";
 import Chamada from "../components/Chamada.astro";
-import { perfil } from "../dados/perfil";
-
-// SUBSTITUA pelos serviços que você realmente quer vender, e pelo formato de
-// entrega que você consegue cumprir tendo um trabalho em tempo integral.
-const servicos = [
-  {
-    titulo: "Auditoria de SEO",
-    entrega: "documento + reunião de 1h",
-    texto:
-      "Levantamento técnico, de conteúdo e de intenção de busca, com uma lista de correções ordenada por impacto e esforço. Serve para quem tem site publicado e não sabe por onde começar.",
-  },
-  {
-    titulo: "Plano de pauta a partir de dado",
-    entrega: "planilha + método documentado",
-    texto:
-      "Pautas tiradas do que o seu site já mostra no Search Console, agrupadas por intenção. Você recebe as pautas e o método, para continuar sozinho depois.",
-  },
-  {
-    titulo: "Edição de vídeo curto",
-    entrega: "por peça ou por pacote mensal",
-    texto:
-      "Corte, legenda e finalização de vídeo vertical a partir do seu material bruto. Fluxo de edição por transcrição, o que encurta bastante o retorno.",
-  },
-];
+import { perfil, servicos } from "../dados/perfil";
 ---
-<Base titulo={`Serviços · ${perfil.nome}`} descricao="Auditoria de SEO, plano de pauta e edição de vídeo curto.">
+<Base
+  titulo={"Serviços · " + perfil.nome}
+  descricao="Projetos de SEO, conteúdo e experimentação com IA para operações enxutas."
+>
   <section class="env abertura">
-    <p class="rotulo">03 · serviços</p>
-    <h1 class="linha-um">Trabalho por projeto.</h1>
+    <p class="rotulo">05 · serviços</p>
+    <h1 class="linha-um">Projetos pequenos. Problemas concretos.</h1>
     <p class="resumo">
-      Atendo um projeto por vez, fora do horário comercial. Se o prazo for
-      apertado, eu digo antes em vez de aceitar e atrasar.
+      Atendo projetos pontuais fora do horário comercial, com escopo claro,
+      entrega objetiva e sem promessa de “solução 360°” para quem só precisa
+      de uma coisa bem resolvida.
     </p>
   </section>
 
@@ -40,13 +21,14 @@ const servicos = [
     <div class="trilho">
       <div class="cabeca">
         <span class="rotulo">o que eu entrego</span>
-        <p>Escopo fechado e prazo dito na proposta.</p>
+        <p>Escopo fechado e linguagem sem enrolação.</p>
       </div>
+
       <div class="itens">
         {servicos.map((s) => (
           <article class="item">
-            <h3>{s.titulo}</h3>
-            <p class="rotulo" style="margin:4px 0 8px">{s.entrega}</p>
+            <h2>{s.titulo}</h2>
+            <p class="rotulo entrega">{s.entrega}</p>
             <p>{s.texto}</p>
           </article>
         ))}
