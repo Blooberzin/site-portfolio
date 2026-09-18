@@ -8,34 +8,24 @@ import { perfil, lab } from "../dados/perfil";
   descricao="Laboratório de experimentação com IA generativa, automação, agentes e produtos digitais."
 >
   <section class="env abertura">
-    <p class="rotulo">04 · ai lab</p>
+    <span class="rotulo">04 · ai lab</span>
     <h1 class="linha-um">Eu testo a tecnologia no trabalho real.</h1>
-    <p class="resumo">
-      Nem todo experimento vira produto. Alguns viram método, outros viram
-      código descartado e alguns só servem para descobrir uma pergunta melhor.
-      Este espaço registra os que vale a pena continuar explorando.
-    </p>
+    <p class="resumo">Protótipos, fluxos e ideias em evolução. Nem tudo vira produto — mas tudo precisa ensinar alguma coisa.</p>
   </section>
 
-  <section class="env secao forte">
-    <div class="trilho">
-      <div class="cabeca">
-        <span class="rotulo">experimentos</span>
-        <p>Protótipos, fluxos e ideias em evolução.</p>
-      </div>
-
-      <div class="itens">
-        {lab.map((item, i) => (
-          <article class="item lab-item">
-            <div class="case-meta">
-              <span class="case-num">{String(i + 1).padStart(2, "0")}</span>
-              <span class="rotulo">{item.stack}</span>
-            </div>
-            <h2>{item.titulo}</h2>
-            <p>{item.texto}</p>
-          </article>
-        ))}
-      </div>
+  <section class="env secao">
+    <div class="cards-grid">
+      {lab.map((item, i) => (
+        <article class:list={["project-card", i === 0 ? "large" : ""]}>
+          <div class="project-top">
+            <span class="project-number">{String(i + 1).padStart(2, "0")}</span>
+            <span class="project-tag">{item.stack}</span>
+          </div>
+          <h3>{item.titulo}</h3>
+          <p>{item.texto}</p>
+          <span class="card-arrow" aria-hidden="true">↗</span>
+        </article>
+      ))}
     </div>
   </section>
 
