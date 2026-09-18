@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import React from "react";
+import { verifySlide } from "@/lib/auth";
 
 export const runtime = "edge";
 
@@ -8,6 +9,11 @@ export async function GET(request: Request) {
   const title = (searchParams.get("title") || "Teste IA").slice(0, 120);
   const body = (searchParams.get("body") || "").slice(0, 260);
   const index = (searchParams.get("index") || "1").slice(0, 2);
+  const exp = searchParams.get("exp") || "";
+  const sig = searchParams.get("sig") || "";
+
+  const valid = await verifySlide({ index, title, body, exp, sig });
+  if (!valid) return new Response("Link de mídia inválido ou expirado.", { status: 401 });
 
   const el = React.createElement(
     "div",
@@ -38,5 +44,9 @@ export async function GET(request: Request) {
     )
   );
 
-  return new ImageResponse(el, { width: 1080, height: 1350 });
+  return new ImageResponse(el, {
+    width: 1080,
+    height: 1350,
+    headers: { "Cache-Control": "public, max-age=300, s-maxage=300" },
+  });
 }
